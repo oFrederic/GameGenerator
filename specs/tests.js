@@ -66,12 +66,13 @@ describe("gameGenerator()", () => {
       for (let i = 0; i <= limit; i++) {
         if (game.guess(i)) correctNumber = i;
       }
+      game.reset();
       const oldNumber = correctNumber;
       for (let i = 0; i <= limit; i++) {
         if (game.guess(i)) newNumber = i;
       }
       console.log(oldNumber, newNumber);
-      expect(oldNumber !== newNumber).toBeFalsy();
+      expect(oldNumber === newNumber).toBeFalsy();
     });
   });
 
