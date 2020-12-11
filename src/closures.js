@@ -5,7 +5,7 @@ function randomInteger(limit) {
 }
 
 function gameGenerator(limit) {
-  const numberToGuess = randomInteger(limit);
+  let numberToGuess = randomInteger(limit);
   let guesses = 0;
 
   return {
@@ -17,7 +17,7 @@ function gameGenerator(limit) {
     reset() {
       guesses = 0;
       const oldNumber = numberToGuess;
-      while (oldNumber !== numberToGuess) {
+      while (oldNumber === numberToGuess) {
         numberToGuess = randomInteger(limit);
       }
     },
